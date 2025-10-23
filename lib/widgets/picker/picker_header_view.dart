@@ -15,26 +15,38 @@ class PickerHeaderView extends StatelessWidget {
 
   Widget _closeButton() {
     return Container(
+      width: 40,
+      height: 40,
       decoration: BoxDecoration(
         color: AppColors.black3C,
         borderRadius: BorderRadius.circular(2),
       ),
-
       child: Assets.icons.commons.icClose.image(),
     );
   }
 
   Widget _title() {
-    return Text(title, style: TextStyle(color: Colors.white));
+    return Text(
+      title,
+      style: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+    );
   }
 
   Widget _saveButton() {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(2),
       ),
-      child: Text("Save"),
+      child: Text(
+        "Save",
+        style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14),
+      ),
     );
   }
 }

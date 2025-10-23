@@ -125,12 +125,54 @@ class $AssetsIconsBarGen {
 class $AssetsIconsCommonsGen {
   const $AssetsIconsCommonsGen();
 
+  /// File path: assets/icons/commons/ic_back.png
+  AssetGenImage get icBack =>
+      const AssetGenImage('assets/icons/commons/ic_back.png');
+
+  /// File path: assets/icons/commons/ic_calendar.png
+  AssetGenImage get icCalendar =>
+      const AssetGenImage('assets/icons/commons/ic_calendar.png');
+
+  /// File path: assets/icons/commons/ic_checkbox_checked.png
+  AssetGenImage get icCheckboxChecked =>
+      const AssetGenImage('assets/icons/commons/ic_checkbox_checked.png');
+
+  /// File path: assets/icons/commons/ic_checkbox_uncheck.png
+  AssetGenImage get icCheckboxUncheck =>
+      const AssetGenImage('assets/icons/commons/ic_checkbox_uncheck.png');
+
   /// File path: assets/icons/commons/ic_close.png
   AssetGenImage get icClose =>
       const AssetGenImage('assets/icons/commons/ic_close.png');
 
+  /// File path: assets/icons/commons/ic_home.png
+  AssetGenImage get icHome =>
+      const AssetGenImage('assets/icons/commons/ic_home.png');
+
+  /// File path: assets/icons/commons/ic_radiobutton_checked.png
+  AssetGenImage get icRadiobuttonChecked =>
+      const AssetGenImage('assets/icons/commons/ic_radiobutton_checked.png');
+
+  /// File path: assets/icons/commons/ic_radiobutton_uncheck.png
+  AssetGenImage get icRadiobuttonUncheck =>
+      const AssetGenImage('assets/icons/commons/ic_radiobutton_uncheck.png');
+
+  /// File path: assets/icons/commons/ic_setting.png
+  AssetGenImage get icSetting =>
+      const AssetGenImage('assets/icons/commons/ic_setting.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [icClose];
+  List<AssetGenImage> get values => [
+    icBack,
+    icCalendar,
+    icCheckboxChecked,
+    icCheckboxUncheck,
+    icClose,
+    icHome,
+    icRadiobuttonChecked,
+    icRadiobuttonUncheck,
+    icSetting,
+  ];
 }
 
 class $AssetsIconsHomeGen {
