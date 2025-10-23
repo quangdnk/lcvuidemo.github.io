@@ -6,9 +6,10 @@ class HomeFeatureItems extends StatelessWidget {
     super.key,
     required this.features,
     required this.isShow,
+    required this.itemClicked,
   });
   final List<FeatureItem> features;
-
+  final ValueChanged<FeatureItem> itemClicked;
   final bool isShow;
 
   @override
@@ -24,7 +25,7 @@ class HomeFeatureItems extends StatelessWidget {
       childAspectRatio: 1,
       children:
           features.map((feature) {
-            return HomeFeatureItem(item: feature);
+            return HomeFeatureItem(item: feature, clicked: itemClicked);
           }).toList(),
     );
   }

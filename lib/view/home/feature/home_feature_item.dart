@@ -3,16 +3,22 @@ import 'package:lcv_ui_demo/gen/assets.gen.dart';
 import 'package:lcv_ui_demo/extensions/hex_color_extension.dart';
 
 class HomeFeatureItem extends StatelessWidget {
-  const HomeFeatureItem({super.key, required this.item});
+  const HomeFeatureItem({super.key, required this.item, required this.clicked});
   final FeatureItem item;
+  final ValueChanged<FeatureItem> clicked;
   @override
   Widget build(BuildContext context) {
     return _config();
   }
 
   Widget _config() {
-    return Column(
-      children: [_iconConfig(), SizedBox(height: 5), _titleCongig()],
+    return GestureDetector(
+      onTap: () {
+        clicked(item);
+      },
+      child: Column(
+        children: [_iconConfig(), SizedBox(height: 5), _titleCongig()],
+      ),
     );
   }
 

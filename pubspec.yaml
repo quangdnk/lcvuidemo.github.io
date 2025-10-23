@@ -25,6 +25,7 @@ flutter:
     - assets/fonts/
     - assets/icons/home/
     - assets/icons/bar/
+    - assets/icons/commons/
   fonts:
     - family: NotoSans
       fonts:

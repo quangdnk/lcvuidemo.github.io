@@ -7,8 +7,8 @@ import 'package:lcv_ui_demo/view/home/feature/home_feature_items.dart';
 import 'package:lcv_ui_demo/extensions/hex_color_extension.dart';
 
 class HomeFeatureView extends StatefulWidget {
-  const HomeFeatureView({super.key});
-
+  const HomeFeatureView({super.key, required this.itemClicked});
+  final ValueChanged<FeatureItem> itemClicked;
   @override
   State<HomeFeatureView> createState() => _HomeFeatureViewState();
 }
@@ -50,7 +50,11 @@ class _HomeFeatureViewState extends State<HomeFeatureView> {
               curve: Curves.easeInOut,
               child:
                   isShow
-                      ? HomeFeatureItems(features: features, isShow: isShow)
+                      ? HomeFeatureItems(
+                        features: features,
+                        isShow: isShow,
+                        itemClicked: widget.itemClicked,
+                      )
                       : SizedBox.shrink(),
             ),
           ],

@@ -100,6 +100,9 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/bar
   $AssetsIconsBarGen get bar => const $AssetsIconsBarGen();
 
+  /// Directory path: assets/icons/commons
+  $AssetsIconsCommonsGen get commons => const $AssetsIconsCommonsGen();
+
   /// Directory path: assets/icons/home
   $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
 }
@@ -117,6 +120,17 @@ class $AssetsIconsBarGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [icBarMenu, icBarNotification];
+}
+
+class $AssetsIconsCommonsGen {
+  const $AssetsIconsCommonsGen();
+
+  /// File path: assets/icons/commons/ic_close.png
+  AssetGenImage get icClose =>
+      const AssetGenImage('assets/icons/commons/ic_close.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [icClose];
 }
 
 class $AssetsIconsHomeGen {
