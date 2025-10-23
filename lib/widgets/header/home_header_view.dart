@@ -13,10 +13,15 @@ class HomeHeaderView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 24,
-            height: 24,
-            child: Assets.icons.commons.icBack.image(),
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: SizedBox(
+              width: 24,
+              height: 24,
+              child: Assets.icons.commons.icBack.image(),
+            ),
           ),
           Text(
             title,
@@ -26,10 +31,15 @@ class HomeHeaderView extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
-            width: 24,
-            height: 24,
-            child: Assets.icons.commons.icHome.image(),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).popUntil((router) => router.isFirst);
+            },
+            child: SizedBox(
+              width: 24,
+              height: 24,
+              child: Assets.icons.commons.icHome.image(),
+            ),
           ),
         ],
       ),

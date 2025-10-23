@@ -152,8 +152,9 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
           onTap: () {
             showModalBottomSheet(
               context: context,
+              isScrollControlled: true,
               builder: (context) {
-                return RepeatpickerView();
+                return SizedBox(height: 380, child: RepeatpickerView());
               },
             );
           },
