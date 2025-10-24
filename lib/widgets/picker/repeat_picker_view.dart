@@ -29,7 +29,12 @@ class _RepeatpickerViewState extends State<RepeatpickerView> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            PickerHeaderView(title: "Repeat"),
+            PickerHeaderView(
+              title: "Repeat",
+              save: () {
+                Navigator.pop(context);
+              },
+            ),
             SizedBox(height: 24),
             Column(
               children:

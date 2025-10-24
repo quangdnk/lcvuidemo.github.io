@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lcv_ui_demo/extensions/hex_color_extension.dart';
 import 'package:lcv_ui_demo/themes/app_colors.dart';
@@ -35,7 +34,12 @@ class _DatepickerViewState extends State<DatepickerView> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            PickerHeaderView(title: "Select date"),
+            PickerHeaderView(
+              title: "Select date",
+              save: () {
+                Navigator.pop(context);
+              },
+            ),
             TableCalendar(
               onDaySelected: (selectedDay, focusedDay) {
                 setState(() {

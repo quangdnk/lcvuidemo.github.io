@@ -29,7 +29,12 @@ class _TimepickerViewState extends State<TimepickerView> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            PickerHeaderView(title: "Select date"),
+            PickerHeaderView(
+              title: "Select date",
+              save: () {
+                Navigator.pop(context);
+              },
+            ),
             SizedBox(height: 24),
             SizedBox(
               height: 220,

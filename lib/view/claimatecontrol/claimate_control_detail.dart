@@ -5,6 +5,7 @@ import 'package:lcv_ui_demo/themes/app_colors.dart';
 import 'package:lcv_ui_demo/themes/app_decorations.dart';
 import 'package:lcv_ui_demo/widgets/app_text.dart';
 import 'package:lcv_ui_demo/widgets/header/home_header_view.dart';
+import 'package:lcv_ui_demo/widgets/header/slider/app_slider.dart';
 import 'package:lcv_ui_demo/widgets/picker/date_picker_view.dart';
 import 'package:lcv_ui_demo/widgets/picker/repeat_picker_view.dart';
 import 'package:lcv_ui_demo/widgets/picker/time_picker_view.dart';
@@ -24,6 +25,7 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
   bool isSpeciflic = true;
   bool isRepeat = false;
   List<Repeat> repeats = [];
+  double sliderChange = 24.5;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,7 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
         child: Column(
           children: [
             _headerView("Setting", Assets.icons.commons.icSetting.image()),
+            _temperature(),
             _duration(),
             _line(),
             _autoMode(),
@@ -77,7 +80,19 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
   }
 
   Widget _temperature() {
-    return Column(children: [AppText("24.5°C", fontSize: 24)]);
+    return Column(
+      children: [
+        AppText("$sliderChange °C", fontSize: 24),
+        AppSlider(
+          value: sliderChange,
+          newValue: (e) {
+            setState(() {
+              sliderChange = e;
+            });
+          },
+        ),
+      ],
+    );
   }
 
   Widget _scheduleView() {
