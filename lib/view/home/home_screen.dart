@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lcv_ui_demo/view/claimatecontrol/claimate_control_detail.dart';
+import 'package:lcv_ui_demo/view/claimatecontrol/claimate_control_screen.dart';
 import 'package:lcv_ui_demo/view/home/control/home_control_view.dart';
 import 'package:lcv_ui_demo/view/home/feature/home_feature_item.dart';
 import 'package:lcv_ui_demo/view/home/feature/home_feature_view.dart';
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ClaimateControlDetail(),
+                        builder: (context) => ClaimateControlScreen(),
                       ),
                     );
                   // showModalBottomSheet(

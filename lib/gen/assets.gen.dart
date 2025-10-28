@@ -145,6 +145,10 @@ class $AssetsIconsCommonsGen {
   AssetGenImage get icClose =>
       const AssetGenImage('assets/icons/commons/ic_close.png');
 
+  /// File path: assets/icons/commons/ic_front.png
+  AssetGenImage get icFront =>
+      const AssetGenImage('assets/icons/commons/ic_front.png');
+
   /// File path: assets/icons/commons/ic_home.png
   AssetGenImage get icHome =>
       const AssetGenImage('assets/icons/commons/ic_home.png');
@@ -157,9 +161,17 @@ class $AssetsIconsCommonsGen {
   AssetGenImage get icRadiobuttonUncheck =>
       const AssetGenImage('assets/icons/commons/ic_radiobutton_uncheck.png');
 
+  /// File path: assets/icons/commons/ic_rear.png
+  AssetGenImage get icRear =>
+      const AssetGenImage('assets/icons/commons/ic_rear.png');
+
   /// File path: assets/icons/commons/ic_setting.png
   AssetGenImage get icSetting =>
       const AssetGenImage('assets/icons/commons/ic_setting.png');
+
+  /// File path: assets/icons/commons/ic_update.png
+  AssetGenImage get icUpdate =>
+      const AssetGenImage('assets/icons/commons/ic_update.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -168,10 +180,13 @@ class $AssetsIconsCommonsGen {
     icCheckboxChecked,
     icCheckboxUncheck,
     icClose,
+    icFront,
     icHome,
     icRadiobuttonChecked,
     icRadiobuttonUncheck,
+    icRear,
     icSetting,
+    icUpdate,
   ];
 }
 
