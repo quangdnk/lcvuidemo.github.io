@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lcv_ui_demo/view/claimatecontrol/claimate_control_detail.dart';
+
 import 'package:lcv_ui_demo/view/claimatecontrol/claimate_control_screen.dart';
 import 'package:lcv_ui_demo/view/home/control/home_control_view.dart';
 import 'package:lcv_ui_demo/view/home/feature/home_feature_item.dart';
@@ -8,9 +8,6 @@ import 'package:lcv_ui_demo/view/home/home_car_view.dart';
 import 'package:lcv_ui_demo/view/home/home_header_main_view.dart';
 import 'package:lcv_ui_demo/view/home/information/home_infomation_view.dart';
 import 'package:lcv_ui_demo/view/home/information/items/home_information_remote.dart';
-import 'package:lcv_ui_demo/widgets/picker/date_picker_view.dart';
-import 'package:lcv_ui_demo/widgets/picker/repeat_picker_view.dart';
-import 'package:lcv_ui_demo/widgets/picker/time_picker_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ClaimateControlScreen(),
+                        builder:
+                            (context) =>
+                                ClaimateControlScreen(), //ClaimateControlDetail(),
                       ),
                     );
                   // showModalBottomSheet(

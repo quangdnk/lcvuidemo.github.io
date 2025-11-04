@@ -1,7 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:lcv_ui_demo/domains/enities/reservation.dart';
 import 'package:lcv_ui_demo/gen/assets.gen.dart';
+import 'package:lcv_ui_demo/repositories/reservation_repository.dart';
 import 'package:lcv_ui_demo/themes/app_colors.dart';
 import 'package:lcv_ui_demo/themes/app_decorations.dart';
 import 'package:lcv_ui_demo/view/claimatecontrol/claimate_control_detail.dart';
@@ -16,6 +16,24 @@ class ClaimateControlScreen extends StatefulWidget {
 }
 
 class _ClaimateControlScreenState extends State<ClaimateControlScreen> {
+  late final ReservationRepository repository;
+
+  late List<Reservation> items = [];
+  @override
+  void initState() {
+    super.initState();
+    repository = ReservationRepository();
+    callData();
+  }
+
+  void callData() {
+    repository.getResevation().then((result) {
+      setState(() {
+        items = result.data ?? [];
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,6 +147,12 @@ class _ClaimateControlScreenState extends State<ClaimateControlScreen> {
               },
             ),
           ),
+          ...items.map(
+            (e) => _scheduleItem(e, (Reservation item) {
+              item.activeStatus = !(item.activeStatus);
+              repository.editReservation(item.parse()).then((_) => callData());
+            }),
+          ),
         ],
       ),
     );
@@ -158,7 +182,7 @@ class _ClaimateControlScreenState extends State<ClaimateControlScreen> {
   }
 
   Widget _settingItem(String title, Widget main) {
-    return Container(
+    return SizedBox(
       height: 48,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -177,23 +201,22 @@ class _ClaimateControlScreenState extends State<ClaimateControlScreen> {
     );
   }
 
-  Widget _scheduleItem(
-    String title,
-    String desc,
-    bool isEnable,
-    ValueChanged<bool> onChange,
-  ) {
-    return Container(
+  Widget _scheduleItem(Reservation item, ValueChanged<Reservation> onChange) {
+    return SizedBox(
       height: 62,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(children: [AppText(title), AppText(desc)]),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [AppText(item.title()), AppText(item.desc())],
+          ),
           Switch(
-            value: isEnable,
+            value: item.activeStatus,
             onChanged: (c) {
-              onChange(c);
+              onChange(item);
             },
           ),
         ],

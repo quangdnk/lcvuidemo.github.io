@@ -1,6 +1,9 @@
+import 'package:LCVFlutterSDK/core/models/reservation_item_sdk_request.dart';
+import 'package:LCVFlutterSDK/core/models/reservation_setting_sdk_request.dart';
 import 'package:flutter/material.dart';
 
 import 'package:lcv_ui_demo/gen/assets.gen.dart';
+import 'package:lcv_ui_demo/repositories/reservation_repository.dart';
 import 'package:lcv_ui_demo/themes/app_colors.dart';
 import 'package:lcv_ui_demo/themes/app_decorations.dart';
 import 'package:lcv_ui_demo/widgets/app_text.dart';
@@ -18,14 +21,25 @@ class ClaimateControlDetail extends StatefulWidget {
 }
 
 class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
+  late final ReservationRepository repository;
+  List<int> listSchedule = [];
   bool is10min = true;
   bool isAuto = true;
   bool isFront = true;
   bool isRear = true;
   bool isSpeciflic = true;
   bool isRepeat = false;
+  int hour = 8;
+  int mins = 30;
   List<Repeat> repeats = [];
   double sliderChange = 24.5;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    repository = ReservationRepository();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +134,18 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
           context: context,
           isScrollControlled: true,
           builder: (context) {
-            return SizedBox(height: 350, child: TimepickerView(DateTime.now()));
+            return SizedBox(
+              height: 350,
+              child: TimepickerView(
+                DateTime(hour, mins),
+                save: (DateTime value) {
+                  setState(() {
+                    hour = value.hour;
+                    mins = value.minute;
+                  });
+                },
+              ),
+            );
           },
         );
       },
@@ -130,7 +155,7 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppText("Time"),
-            Row(children: [AppText("08:00"), SizedBox(width: 4)]),
+            Row(children: [AppText("$hour:$mins"), SizedBox(width: 4)]),
           ],
         ),
       ),
@@ -189,15 +214,39 @@ class _ClaimateControlDetailState extends State<ClaimateControlDetail> {
   }
 
   Widget _saveButton() {
-    return Align(
-      alignment: Alignment.center,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(2),
+    return GestureDetector(
+      onTap: () {
+        final param = ReservationItemSdkRequest(
+          activeStatus: false,
+          reservationNo: 0,
+          repetition: RepetitionSDK(
+            hour: hour,
+            week: listSchedule,
+            min: mins,
+            setting: ReservationSettingSdkRequest(
+              temperature: sliderChange.toString(),
+              steering: false,
+              frontDefogger: isFront,
+              rearDefogger: isRear,
+              shVlType: false,
+            ),
+          ),
+        );
+        repository.newReservation(param).then((result) {
+          print(result.statusCode);
+        });
+      },
+      child: Align(
+        alignment: Alignment.center,
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          child: Text("Save"),
         ),
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        child: Text("Save"),
       ),
     );
   }

@@ -100,6 +100,9 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/bar
   $AssetsIconsBarGen get bar => const $AssetsIconsBarGen();
 
+  /// Directory path: assets/icons/car
+  $AssetsIconsCarGen get car => const $AssetsIconsCarGen();
+
   /// Directory path: assets/icons/commons
   $AssetsIconsCommonsGen get commons => const $AssetsIconsCommonsGen();
 
@@ -120,6 +123,114 @@ class $AssetsIconsBarGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [icBarMenu, icBarNotification];
+}
+
+class $AssetsIconsCarGen {
+  const $AssetsIconsCarGen();
+
+  /// File path: assets/icons/car/car_customize_body.png
+  AssetGenImage get carCustomizeBody =>
+      const AssetGenImage('assets/icons/car/car_customize_body.png');
+
+  /// File path: assets/icons/car/car_customize_theme.png
+  AssetGenImage get carCustomizeTheme =>
+      const AssetGenImage('assets/icons/car/car_customize_theme.png');
+
+  /// File path: assets/icons/car/car_detail_customize_cab.png
+  AssetGenImage get carDetailCustomizeCab =>
+      const AssetGenImage('assets/icons/car/car_detail_customize_cab.png');
+
+  /// File path: assets/icons/car/ic_car_bg_cadetblue.png
+  AssetGenImage get icCarBgCadetblue =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_cadetblue.png');
+
+  /// File path: assets/icons/car/ic_car_bg_dimgray.png
+  AssetGenImage get icCarBgDimgray =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_dimgray.png');
+
+  /// File path: assets/icons/car/ic_car_bg_green.png
+  AssetGenImage get icCarBgGreen =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_green.png');
+
+  /// File path: assets/icons/car/ic_car_bg_lightsteelblue.png
+  AssetGenImage get icCarBgLightsteelblue =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_lightsteelblue.png');
+
+  /// File path: assets/icons/car/ic_car_bg_peru.png
+  AssetGenImage get icCarBgPeru =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_peru.png');
+
+  /// File path: assets/icons/car/ic_car_bg_red.png
+  AssetGenImage get icCarBgRed =>
+      const AssetGenImage('assets/icons/car/ic_car_bg_red.png');
+
+  /// File path: assets/icons/car/ic_car_black.png
+  AssetGenImage get icCarBlack =>
+      const AssetGenImage('assets/icons/car/ic_car_black.png');
+
+  /// File path: assets/icons/car/ic_car_blue.png
+  AssetGenImage get icCarBlue =>
+      const AssetGenImage('assets/icons/car/ic_car_blue.png');
+
+  /// File path: assets/icons/car/ic_car_detail_background.png
+  AssetGenImage get icCarDetailBackground =>
+      const AssetGenImage('assets/icons/car/ic_car_detail_background.png');
+
+  /// File path: assets/icons/car/ic_car_detail_cab_crew.png
+  AssetGenImage get icCarDetailCabCrew =>
+      const AssetGenImage('assets/icons/car/ic_car_detail_cab_crew.png');
+
+  /// File path: assets/icons/car/ic_car_detail_cab_extended.png
+  AssetGenImage get icCarDetailCabExtended =>
+      const AssetGenImage('assets/icons/car/ic_car_detail_cab_extended.png');
+
+  /// File path: assets/icons/car/ic_car_detail_cab_mega.png
+  AssetGenImage get icCarDetailCabMega =>
+      const AssetGenImage('assets/icons/car/ic_car_detail_cab_mega.png');
+
+  /// File path: assets/icons/car/ic_car_detail_cab_regular.png
+  AssetGenImage get icCarDetailCabRegular =>
+      const AssetGenImage('assets/icons/car/ic_car_detail_cab_regular.png');
+
+  /// File path: assets/icons/car/ic_car_gray.png
+  AssetGenImage get icCarGray =>
+      const AssetGenImage('assets/icons/car/ic_car_gray.png');
+
+  /// File path: assets/icons/car/ic_car_red.png
+  AssetGenImage get icCarRed =>
+      const AssetGenImage('assets/icons/car/ic_car_red.png');
+
+  /// File path: assets/icons/car/ic_car_silver.png
+  AssetGenImage get icCarSilver =>
+      const AssetGenImage('assets/icons/car/ic_car_silver.png');
+
+  /// File path: assets/icons/car/ic_car_white.png
+  AssetGenImage get icCarWhite =>
+      const AssetGenImage('assets/icons/car/ic_car_white.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+    carCustomizeBody,
+    carCustomizeTheme,
+    carDetailCustomizeCab,
+    icCarBgCadetblue,
+    icCarBgDimgray,
+    icCarBgGreen,
+    icCarBgLightsteelblue,
+    icCarBgPeru,
+    icCarBgRed,
+    icCarBlack,
+    icCarBlue,
+    icCarDetailBackground,
+    icCarDetailCabCrew,
+    icCarDetailCabExtended,
+    icCarDetailCabMega,
+    icCarDetailCabRegular,
+    icCarGray,
+    icCarRed,
+    icCarSilver,
+    icCarWhite,
+  ];
 }
 
 class $AssetsIconsCommonsGen {

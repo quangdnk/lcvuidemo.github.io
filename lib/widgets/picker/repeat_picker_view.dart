@@ -115,4 +115,63 @@ extension RepeatItemExtenstion on Repeat {
         return "Sunday";
     }
   }
+
+  int get number {
+    switch (this) {
+      case Repeat.mon:
+        return 1;
+      case Repeat.tue:
+        return 2;
+      case Repeat.wed:
+        return 3;
+      case Repeat.thur:
+        return 4;
+      case Repeat.fri:
+        return 5;
+      case Repeat.sat:
+        return 6;
+      case Repeat.sun:
+        return 7;
+    }
+  }
+
+  static Repeat fromNumber(int n) {
+    switch (n) {
+      case 1:
+        return Repeat.mon;
+      case 2:
+        return Repeat.tue;
+      case 3:
+        return Repeat.wed;
+      case 4:
+        return Repeat.thur;
+      case 5:
+        return Repeat.fri;
+      case 6:
+        return Repeat.sat;
+      case 7:
+        return Repeat.sun;
+      default:
+        throw ArgumentError('Invalid number for Repeat enum: $n');
+    }
+  }
+
+  String minTitle() {
+    switch (this) {
+      case Repeat.mon:
+        return "Mon";
+      case Repeat.tue:
+        return "Tue";
+      case Repeat.wed:
+        return "Wed";
+      case Repeat.thur:
+        return "Thu";
+      case Repeat.fri:
+        return "Fri";
+      case Repeat.sat:
+        return "Sat";
+      case Repeat.sun:
+        return "Sun";
+    }
+  }
 }

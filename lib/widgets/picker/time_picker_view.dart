@@ -4,15 +4,22 @@ import 'package:lcv_ui_demo/themes/app_colors.dart';
 import 'package:lcv_ui_demo/widgets/picker/picker_header_view.dart';
 
 class TimepickerView extends StatefulWidget {
-  const TimepickerView(this.selectedTime, {super.key});
+  const TimepickerView(this.selectedTime, {super.key, required this.save});
 
   final DateTime? selectedTime;
-
+  final ValueChanged<DateTime> save;
   @override
   State<TimepickerView> createState() => _TimepickerViewState();
 }
 
 class _TimepickerViewState extends State<TimepickerView> {
+  late DateTime selectedTime;
+  @override
+  void initState() {
+    super.initState();
+    selectedTime = widget.selectedTime ?? DateTime.now();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,6 +39,7 @@ class _TimepickerViewState extends State<TimepickerView> {
             PickerHeaderView(
               title: "Select date",
               save: () {
+                widget.save(selectedTime);
                 Navigator.pop(context);
               },
             ),
@@ -51,7 +59,9 @@ class _TimepickerViewState extends State<TimepickerView> {
                     backgroundColor: Colors.black.withValues(alpha: 0.1),
                     mode: CupertinoDatePickerMode.time,
                     use24hFormat: false,
-                    onDateTimeChanged: (data) {},
+                    onDateTimeChanged: (data) {
+                      selectedTime = data;
+                    },
                   ),
                 ),
               ),
